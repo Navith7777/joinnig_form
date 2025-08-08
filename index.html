@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Personal Details</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        table input, table select {
+            width: 100%;
+        }
+        table {
+            font-size: 0.9rem;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container my-4">
+    <div class="form-section">
+      <div class="container my-4">
+    <!-- Company Header -->
+    <div class="text-center mb-4">
+        <img src="jse-logo.png" alt="Company Logo" style="height: 60px; width:auto;">
+        <h5 class="mt-2 fw-bold">JSE Engineering Pvt Ltd</h5>
+        <hr style="height:3px; background-color: orange; border: none; width: 100%;">
+    </div>
+        <h4 class="text-center">EMPLOYEE PERSONAL DETAILS</h4>
+        <form id="employeeForm">
+            <!-- Personal Info -->
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label"> Name <span class="required">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+           
+                <div class="col-md-3">
+                    <label class="form-label">Date of Birth <span class="required">*</span></label>
+                    <input type="date" class="form-control">
+                </div>
+               <div class="col-md-3">
+    <label class="form-label d-block">Gender <span class="required">*</span></label>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male">
+        <label class="form-check-label" for="genderMale">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female">
+        <label class="form-check-label" for="genderFemale">Female</label>
+    </div>
+</div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Upload Photo <span class="required">*</span></label>
+                    <input type="file" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Blood Group <span class="required">*</span></label>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>A+</option>
+                        <option>B+</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Qualification <span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="e.g. BE (Mech.)">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Email <span class="required">*</span></label>
+                    <input type="email" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Mobile Number +91 <span class="required">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Alternative Number +91</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Permanent Address <span class="required">*</span></label>
+                    <textarea class="form-control" rows="1"></textarea>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Current Address <span class="required">*</span></label>
+                    <textarea class="form-control" rows="1"></textarea>
+                </div>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="mt-4">
+                <h4>WORK EXPERIENCE</h4>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Total Years of Experience</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">No. of Experience in BIM</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sl. No.</th>
+                                <th>Name of the Company</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Total Experience</th>
+                                <th>Company Photo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="date" class="form-control"></td>
+                                <td><input type="date" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Family Details -->
+            <div class="mt-4">
+                <h4>FAMILY DETAILS <small class="text-danger">* All fields are mandatory</small></h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Family Members</th>
+                                <th>Relationship</th>
+                                <th>Age</th>
+                                <th>Mobile Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="number" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Education Details -->
+            <div class="mt-4">
+                <h4>EDUCATION DETAILS <small class="text-danger">* All fields are mandatory</small></h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Course</th>
+                                <th>Institution</th>
+                                <th>Passed On</th>
+                                <th>Percentage</th>
+                                <th>Upload Certificate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="date" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Passport Details -->
+            <div class="mt-4">
+                <h4>PASSPORT DETAILS</h4>
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label class="form-label">Do you have a passport?</label>
+                        <div>
+                            <input type="radio" name="passport" value="yes"> Yes
+                            <input type="radio" name="passport" value="no" class="ms-2"> No
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Passport No</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Place of Issue</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Date of Issue</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Expiry Date</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Upload Passport Copy</label>
+                        <input type="file" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-end mt-4">
+                <button type="submit" class="btn btn-primary px-4">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById("employeeForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stop form submission
+
+    let name = document.querySelector("input[type='text']").value.trim(); 
+    let dob = document.querySelector("input[type='date']").value.trim();
+    let gender = document.querySelector("input[name='gender']:checked");
+    let photo = document.querySelector("input[type='file']").value.trim();
+    let bloodGroup = document.querySelector("select").value.trim();
+    let qualification = document.querySelectorAll("input[type='text']")[1].value.trim(); 
+    let email = document.querySelector("input[type='email']").value.trim();
+    let mobile = document.querySelectorAll("input[type='text']")[2].value.trim();
+    let permanentAddress = document.querySelectorAll("textarea")[0].value.trim();
+    let currentAddress = document.querySelectorAll("textarea")[1].value.trim();
+
+    // Validation
+    if (name === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your name.' });
+        return;
+    }
+    if (dob === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please select your date of birth.' });
+        return;
+    }
+    if (!gender) {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please select your gender.' });
+        return;
+    }
+    if (photo === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please upload your photo.' });
+        return;
+    }
+    if (bloodGroup === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please select your blood group.' });
+        return;
+    }
+    if (qualification === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your qualification.' });
+        return;
+    }
+    if (email === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your email.' });
+        return;
+    }
+    if (mobile === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your mobile number.' });
+        return;
+    }
+    if (permanentAddress === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your permanent address.' });
+        return;
+    }
+    if (currentAddress === "") {
+        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your current address.' });
+        return;
+    }
+
+    // If all fields are filled
+    Swal.fire({ icon: 'success', title: 'Success!', text: 'Form submitted successfully.' })
+        .then(() => {
+            e.target.submit(); // submit the form after alert
+        });
+});
+</script>
+
+<script>
+
+    e.preventDefault(); // stop normal submit
+
+    let form = this;
+
+    // Map field names to friendly labels
+    const fieldLabels = {
+        name: "Name",
+        dob: "Date of Birth",
+        gender: "Gender",
+        photo: "Upload Photo",
+        bloodGroup: "Blood Group",
+        qualification: "Qualification",
+        email: "Email",
+        mobile: "Mobile Number",
+        permanentAddress: "Permanent Address",
+        currentAddress: "Current Address",
+    };
+
+    // Check each field in order
+    for (let fieldName in fieldLabels) {
+        let inputs = form.querySelectorAll(`[name="${fieldName}"]`);
+        let isFilled = false;
+
+        if (inputs.length > 0) {
+            if (inputs[0].type === "radio") {
+                isFilled = [...inputs].some(input => input.checked);
+            } else if (inputs[0].type === "file") {
+                isFilled = inputs[0].files.length > 0;
+            } else {
+                isFilled = inputs[0].value.trim() !== "";
+            }
+        }
+
+        if (!isFilled) {
+            Swal.fire({
+                icon: "error",
+                title: "Validation Error",
+                text: `Please fill ${fieldLabels[fieldName]}`
+            });
+            return; // stop checking further
+        }
+    }
+
+    // If all are filled
+    Swal.fire({
+        icon: "success",
+        title: "Form Submitted!",
+        text: "Your details have been successfully submitted."
+    });
+});
+
+document.getElementById("employeeForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop form from submitting
+
+    let form = this;
+    let missingFields = [];
+
+    // Map field names to friendly labels
+    const fieldLabels = {
+        name: "Name",
+        dob: "Date of Birth",
+        gender: "Gender",
+        photo: "Upload Photo",
+        bloodGroup: "Blood Group",
+        qualification: "Qualification",
+        email: "Email",
+        mobile: "Mobile Number",
+        permanentAddress: "Permanent Address",
+        currentAddress: "Current Address",
+        educationCourse: "Education - Course",
+        educationInstitution: "Education - Institution",
+        educationPassedOn: "Education - Passed On",
+        educationPercentage: "Education - Percentage",
+        educationCertificate: "Education - Certificate Upload",
+        familyName: "Family Member Name",
+        familyRelation: "Family Relationship",
+        familyAge: "Family Age",
+        familyMobile: "Family Mobile Number",
+        expCompany: "Experience - Company Name",
+        expFrom: "Experience - From",
+        expTo: "Experience - To",
+        expDuration: "Experience - Total Experience",
+        expPhoto: "Experience - Company Photo",
+        passport: "Do you have a passport?",
+        passportNo: "Passport Number",
+        passportPlace: "Place of Issue",
+        passportIssueDate: "Date of Issue",
+        passportExpiryDate: "Expiry Date",
+        passportCopy: "Upload Passport Copy"
+    };
+
+    // Loop through all required fields
+    form.querySelectorAll("[required]").forEach(function(input) {
+        if ((input.type === "radio" || input.type === "checkbox") && !form.querySelector(`input[name="${input.name}"]:checked`)) {
+            if (!missingFields.includes(input.name)) {
+                missingFields.push(input.name);
+            }
+        } else if (input.type !== "radio" && input.type !== "checkbox" && !input.value.trim()) {
+            missingFields.push(input.name);
+        }
+    });
+
+    // Show SweetAlert error if there are missing fields
+    if (missingFields.length > 0) {
+        Swal.fire({
+            icon: "error",
+            title: "Validation Error",
+            html: "Please fill in the required fields:<br><b>" +
+                  missingFields.map(f => fieldLabels[f] || f).join(", ") + "</b>",
+        });
+    } else {
+        Swal.fire({
+            icon: "success",
+            title: "Form Submitted!",
+            text: "Your details have been successfully submitted."
+        });
+
+        // Uncomment below to submit
+        // form.submit();
+    }
+});
+</script>
+
+</body>
+</html>
