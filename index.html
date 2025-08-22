@@ -41,213 +41,241 @@
 <body>
 
 <div class="container my-4">
-    <div class="form-section">
-      <div class="container my-4">
+  <div class="form-section">
     <!-- Company Header -->
     <div class="text-center mb-4">
-        <img src="jse-logo.png" alt="Company Logo" style="height: 60px; width:auto;">
-        <h5 class="mt-2 fw-bold">JSE Engineering Pvt Ltd</h5>
-        <hr style="height:3px; background-color: orange; border: none; width: 100%;">
+      <img src="images/logo_admin.png" alt="Company Logo" style="height: 60px; width:auto;">
+      <h5 class="mt-2 fw-bold">JSE Engineering Pvt Ltd</h5>
+      <hr style="height:3px; background-color: orange; border: none; width: 100%;">
     </div>
-        <h4 class="text-center">EMPLOYEE PERSONAL DETAILS</h4>
-        <form id="employeeForm">
-            <!-- Personal Info -->
+
+    <h4 class="text-center">EMPLOYEE PERSONAL DETAILS</h4>
+
+    <form id="employeeForm">
+      <!-- Personal Info -->
+      <div class="row g-3">
+        <div class="col-md-3">
+          <label class="form-label"> Name <span class="required">*</span></label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Date of Birth <span class="required">*</span></label>
+          <input type="date" class="form-control" name="dob" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label d-block">Gender <span class="required">*</span></label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+            <label class="form-check-label" for="genderMale">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+            <label class="form-check-label" for="genderFemale">Female</label>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Upload Photo <span class="required">*</span></label>
+          <input type="file" class="form-control" name="photo" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Blood Group <span class="required">*</span></label>
+          <select class="form-select" name="bloodGroup" required>
+            <option value="">-- Select --</option>
+            <option>A+</option>
+            <option>B+</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Qualification <span class="required">*</span></label>
+          <input type="text" class="form-control" name="qualification" required placeholder="e.g. BE (Mech.)">
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Email <span class="required">*</span></label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Mobile Number +91 <span class="required">*</span></label>
+          <input type="text" class="form-control" name="mobile" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Alternative Number +91</label>
+          <input type="text" class="form-control" name="altMobile">
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Permanent Address <span class="required">*</span></label>
+          <textarea class="form-control" rows="1" name="permanentAddress" required></textarea>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Current Address <span class="required">*</span></label>
+          <textarea class="form-control" rows="1" name="currentAddress" required></textarea>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+ <!-- ✅ Work Experience Section -->
+<div class="mt-4">
+    <h4>WORK EXPERIENCE</h4>
+
+    <!-- Radio Option -->
+    <div class="mb-3">
+        <label class="form-label">Are you a Fresher or Experienced?</label><br>
+        <input type="radio" name="experienceType" id="fresherRadio" value="fresher"> Fresher
+        <input type="radio" name="experienceType" id="experienceRadio" value="experience" class="ms-3"> Experience
+    </div>
+
+    <!-- Experience Fields (hidden initially) -->
+    <div id="experienceFields" style="display:none;">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Total Years of Experience</label>
+                <input type="text" class="form-control" name="totalExperience">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">No. of Years in BIM</label>
+                <input type="text" class="form-control" name="bimExperience">
+            </div>
+        </div>
+
+        <!-- Dynamic Experience Blocks -->
+        <div id="experienceContainer" class="mt-3"></div>
+
+        <!-- Add More Button -->
+        <button type="button" class="btn btn-primary mt-2" id="addExperience">+ Add Experience</button>
+    </div>
+</div>
+
+
+      <!-- Family Details -->
+      <div class="mt-4">
+        <h4>FAMILY DETAILS <small class="text-danger">* All fields are mandatory</small></h4>
+
+        <div id="familyContainer">
+          <div class="family-card border rounded p-3 mb-3">
+            <div class="row g-3 align-items-center">
+              <div class="col-md-3">
+                <label class="form-label">Family Member</label>
+                <input type="text" class="form-control" name="family_member[]" required>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Relationship</label>
+                <input type="text" class="form-control" name="relationship[]" required>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Age</label>
+                <input type="number" class="form-control" name="age[]" required>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" name="mobile[]" required>
+              </div>
+              <div class="col-md-1 text-center">
+                <button type="button" class="btn btn-danger btn-sm mt-4 removeRow">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="addRow">+ Family Member</button>
+      </div>
+
+      <!-- Education Details -->
+      <div class="mt-4">
+        <h4>
+          EDUCATION DETAILS 
+          <small class="text-danger">* All fields are mandatory</small>
+        </h4>
+
+        <div id="education-container">
+          <!-- First Education Row -->
+          <div class="education-item border rounded p-3 mb-3">
             <div class="row g-3">
-                <div class="col-md-3">
-                    <label class="form-label"> Name <span class="required">*</span></label>
-                    <input type="text" class="form-control">
-                </div>
-           
-                <div class="col-md-3">
-                    <label class="form-label">Date of Birth <span class="required">*</span></label>
-                    <input type="date" class="form-control">
-                </div>
-               <div class="col-md-3">
-    <label class="form-label d-block">Gender <span class="required">*</span></label>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male">
-        <label class="form-check-label" for="genderMale">Male</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female">
-        <label class="form-check-label" for="genderFemale">Female</label>
-    </div>
+              <div class="col-md-3">
+                <label class="form-label">Course</label>
+                <input type="text" class="form-control" name="educationCourse" required>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Institution</label>
+                <input type="text" class="form-control" name="educationInstitution" required>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Passed On</label>
+                <input type="date" class="form-control" name="educationPassedOn" required>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Percentage</label>
+                <input type="text" class="form-control" name="educationPercentage" required>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Upload Certificate</label>
+                <input type="file" class="form-control" name="educationCertificate" required>
+              </div>
+            </div>
+            <div class="mt-2 text-end">
+              <button type="button" class="btn btn-danger btn-sm remove-education">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add More Button -->
+        <button type="button" id="add-education" class="btn btn-primary mt-2">+ Add More Education</button>
+      </div>
+
+      <!-- Passport Details -->
+      <div class="mt-4">
+        <h4>PASSPORT DETAILS</h4>
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label class="form-label">Do you have a passport?</label>
+            <div>
+              <input type="radio" name="passport" value="yes" id="passportYes" required> Yes
+              <input type="radio" name="passport" value="no" id="passportNo" class="ms-2" required> No
+            </div>
+          </div>
+        </div>
+
+        <!-- Hide these fields initially -->
+        <div id="passportFields" class="row g-3 mt-3" style="display:none;">
+          <div class="col-md-2">
+            <label class="form-label">Passport No</label>
+            <input type="text" class="form-control" name="passportNo">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Place of Issue</label>
+            <input type="text" class="form-control" name="passportPlace">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Date of Issue</label>
+            <input type="date" class="form-control" name="passportIssueDate">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Expiry Date</label>
+            <input type="date" class="form-control" name="passportExpiryDate">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Upload Passport Copy</label>
+            <input type="file" class="form-control" name="passportCopy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="text-end mt-4">
+        <button type="submit" class="btn btn-primary px-4">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
 
-                <div class="col-md-3">
-                    <label class="form-label">Upload Photo <span class="required">*</span></label>
-                    <input type="file" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Blood Group <span class="required">*</span></label>
-                    <select class="form-select">
-                        <option value="">-- Select --</option>
-                        <option>A+</option>
-                        <option>B+</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Qualification <span class="required">*</span></label>
-                    <input type="text" class="form-control" placeholder="e.g. BE (Mech.)">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Email <span class="required">*</span></label>
-                    <input type="email" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Mobile Number +91 <span class="required">*</span></label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Alternative Number +91</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Permanent Address <span class="required">*</span></label>
-                    <textarea class="form-control" rows="1"></textarea>
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Current Address <span class="required">*</span></label>
-                    <textarea class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-
-            <!-- Work Experience -->
-            <div class="mt-4">
-                <h4>WORK EXPERIENCE</h4>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label">Total Years of Experience</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">No. of Experience in BIM</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="table-responsive mt-3">
-                    <table class="table table-bordered align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Sl. No.</th>
-                                <th>Name of the Company</th>
-                                <th>From</th>
-                                <th>To</th>
-                                <th>Total Experience</th>
-                                <th>Company Photo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="date" class="form-control"></td>
-                                <td><input type="date" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="file" class="form-control"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Family Details -->
-            <div class="mt-4">
-                <h4>FAMILY DETAILS <small class="text-danger">* All fields are mandatory</small></h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>S.No</th>
-                                <th>Family Members</th>
-                                <th>Relationship</th>
-                                <th>Age</th>
-                                <th>Mobile Number</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="number" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Education Details -->
-            <div class="mt-4">
-                <h4>EDUCATION DETAILS <small class="text-danger">* All fields are mandatory</small></h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>S.No</th>
-                                <th>Course</th>
-                                <th>Institution</th>
-                                <th>Passed On</th>
-                                <th>Percentage</th>
-                                <th>Upload Certificate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="date" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="file" class="form-control"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Passport Details -->
-            <div class="mt-4">
-                <h4>PASSPORT DETAILS</h4>
-                <div class="row g-3">
-                    <div class="col-md-2">
-                        <label class="form-label">Do you have a passport?</label>
-                        <div>
-                            <input type="radio" name="passport" value="yes"> Yes
-                            <input type="radio" name="passport" value="no" class="ms-2"> No
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Passport No</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Place of Issue</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Date of Issue</label>
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Expiry Date</label>
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Upload Passport Copy</label>
-                        <input type="file" class="form-control">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Submit -->
-            <div class="text-end mt-4">
-                <button type="submit" class="btn btn-primary px-4">Submit</button>
-            </div>
-        </form>
-    </div>
-</div>
 
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -256,195 +284,244 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-document.getElementById("employeeForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Stop form submission
-
-    let name = document.querySelector("input[type='text']").value.trim(); 
-    let dob = document.querySelector("input[type='date']").value.trim();
-    let gender = document.querySelector("input[name='gender']:checked");
-    let photo = document.querySelector("input[type='file']").value.trim();
-    let bloodGroup = document.querySelector("select").value.trim();
-    let qualification = document.querySelectorAll("input[type='text']")[1].value.trim(); 
-    let email = document.querySelector("input[type='email']").value.trim();
-    let mobile = document.querySelectorAll("input[type='text']")[2].value.trim();
-    let permanentAddress = document.querySelectorAll("textarea")[0].value.trim();
-    let currentAddress = document.querySelectorAll("textarea")[1].value.trim();
-
-    // Validation
-    if (name === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your name.' });
-        return;
-    }
-    if (dob === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please select your date of birth.' });
-        return;
-    }
-    if (!gender) {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please select your gender.' });
-        return;
-    }
-    if (photo === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please upload your photo.' });
-        return;
-    }
-    if (bloodGroup === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please select your blood group.' });
-        return;
-    }
-    if (qualification === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your qualification.' });
-        return;
-    }
-    if (email === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your email.' });
-        return;
-    }
-    if (mobile === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your mobile number.' });
-        return;
-    }
-    if (permanentAddress === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your permanent address.' });
-        return;
-    }
-    if (currentAddress === "") {
-        Swal.fire({ icon: 'warning', title: 'Required!', text: 'Please enter your current address.' });
-        return;
-    }
-
-    // If all fields are filled
-    Swal.fire({ icon: 'success', title: 'Success!', text: 'Form submitted successfully.' })
-        .then(() => {
-            e.target.submit(); // submit the form after alert
-        });
-});
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("employeeForm");
 
-    e.preventDefault(); // stop normal submit
+    /* ===============================
+       PASSPORT YES/NO TOGGLE
+    =============================== */
+    const yesRadio = document.getElementById("passportYes");
+    const noRadio = document.getElementById("passportNo");
+    const passportFields = document.getElementById("passportFields");
 
-    let form = this;
-
-    // Map field names to friendly labels
-    const fieldLabels = {
-        name: "Name",
-        dob: "Date of Birth",
-        gender: "Gender",
-        photo: "Upload Photo",
-        bloodGroup: "Blood Group",
-        qualification: "Qualification",
-        email: "Email",
-        mobile: "Mobile Number",
-        permanentAddress: "Permanent Address",
-        currentAddress: "Current Address",
-    };
-
-    // Check each field in order
-    for (let fieldName in fieldLabels) {
-        let inputs = form.querySelectorAll(`[name="${fieldName}"]`);
-        let isFilled = false;
-
-        if (inputs.length > 0) {
-            if (inputs[0].type === "radio") {
-                isFilled = [...inputs].some(input => input.checked);
-            } else if (inputs[0].type === "file") {
-                isFilled = inputs[0].files.length > 0;
-            } else {
-                isFilled = inputs[0].value.trim() !== "";
+    if (yesRadio && noRadio && passportFields) {
+        yesRadio.addEventListener("change", function () {
+            if (this.checked) {
+                passportFields.style.display = "flex";
             }
-        }
+        });
 
-        if (!isFilled) {
-            Swal.fire({
-                icon: "error",
-                title: "Validation Error",
-                text: `Please fill ${fieldLabels[fieldName]}`
+        noRadio.addEventListener("change", function () {
+            if (this.checked) {
+                passportFields.style.display = "none";
+                passportFields.querySelectorAll("input").forEach(input => input.value = "");
+            }
+        });
+    }
+
+    /* ===============================
+       ADD / REMOVE EXPERIENCE CARDS
+    =============================== */
+/* ===============================
+   ADD / REMOVE EXPERIENCE CARDS
+=============================== */
+const fresherRadio = document.getElementById("fresherRadio");
+const experienceRadio = document.getElementById("experienceRadio");
+const experienceFields = document.getElementById("experienceFields");
+const addExperienceBtn = document.getElementById("addExperience");
+const container = document.getElementById("experienceContainer");
+
+// Show/Hide Experience Section
+fresherRadio.addEventListener("change", function () {
+    if (this.checked) {
+        experienceFields.style.display = "none";
+        container.innerHTML = ""; // clear all experience cards
+        experienceFields.querySelectorAll("input").forEach(input => input.value = "");
+    }
+});
+
+experienceRadio.addEventListener("change", function () {
+    if (this.checked) {
+        experienceFields.style.display = "block";
+    }
+});
+
+// Add New Experience Block
+if (addExperienceBtn) {
+    addExperienceBtn.addEventListener("click", function () {
+        let newExp = document.createElement("div");
+        newExp.classList.add("experience-card","border","rounded","p-3","mb-3");
+        newExp.innerHTML = `
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-control" name="expCompany[]">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">From</label>
+                    <input type="date" class="form-control" name="expFrom[]">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">To</label>
+                    <input type="date" class="form-control" name="expTo[]">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Duration</label>
+                    <input type="text" class="form-control" name="expDuration[]">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Company Photo</label>
+                    <input type="file" class="form-control" name="expPhoto[]">
+                </div>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm mt-3 removeExperience">Remove</button>
+        `;
+        container.appendChild(newExp);
+    });
+}
+
+// Remove Experience Block
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("removeExperience")) {
+        e.target.closest(".experience-card").remove();
+    }
+});
+
+
+    /* ===============================
+       FAMILY DETAILS: ADD / REMOVE ROWS
+    =============================== */
+    const addFamilyBtn = document.getElementById('addRow');
+    if (addFamilyBtn) {
+        addFamilyBtn.addEventListener('click', function () {
+            let container = document.getElementById('familyContainer');
+            let newRow = document.createElement('div');
+            newRow.classList.add('family-card','border','rounded','p-3','mb-3');
+            newRow.innerHTML = `
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-3">
+                        <label class="form-label">Family Member</label>
+                        <input type="text" class="form-control" name="family_member[]">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Relationship</label>
+                        <input type="text" class="form-control" name="relationship[]">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Age</label>
+                        <input type="number" class="form-control" name="age[]">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" name="mobile[]">
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <button type="button" class="btn btn-danger btn-sm mt-4 removeRow">Remove</button>
+                    </div>
+                </div>`;
+            container.appendChild(newRow);
+        });
+    }
+
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('removeRow')) {
+            e.target.closest('.family-card').remove();
+        }
+    });
+
+    /* ===============================
+       EDUCATION DETAILS: ADD / REMOVE
+    =============================== */
+    const eduContainer = document.getElementById("education-container");
+    const addEduBtn = document.getElementById("add-education");
+
+    if (eduContainer && addEduBtn) {
+        addEduBtn.addEventListener("click", function () {
+            const newItem = document.querySelector(".education-item").cloneNode(true);
+            newItem.querySelectorAll("input").forEach(input => input.value = ""); // reset inputs
+            eduContainer.appendChild(newItem);
+        });
+
+        eduContainer.addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-education")) {
+                if (document.querySelectorAll(".education-item").length > 1) {
+                    e.target.closest(".education-item").remove();
+                } else {
+                    alert("At least one education detail is required.");
+                }
+            }
+        });
+    }
+
+    /* ===============================
+       FORM VALIDATION
+    =============================== */
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // stop normal submission
+            let missingFields = [];
+
+            // Map field names to friendly labels
+            const fieldLabels = {
+                name: "Name",
+                dob: "Date of Birth",
+                gender: "Gender",
+                photo: "Upload Photo",
+                bloodGroup: "Blood Group",
+                qualification: "Qualification",
+                email: "Email",
+                mobile: "Mobile Number",
+                permanentAddress: "Permanent Address",
+                currentAddress: "Current Address",
+                educationCourse: "Education - Course",
+                educationInstitution: "Education - Institution",
+                educationPassedOn: "Education - Passed On",
+                educationPercentage: "Education - Percentage",
+                educationCertificate: "Education - Certificate Upload",
+                family_member: "Family Member Name",
+                relationship: "Family Relationship",
+                age: "Family Age",
+                mobile_family: "Family Mobile Number",
+                expCompany: "Experience - Company Name",
+                expFrom: "Experience - From",
+                expTo: "Experience - To",
+                expDuration: "Experience - Total Experience",
+                expPhoto: "Experience - Company Photo",
+                passport: "Do you have a passport?",
+                passportNo: "Passport Number",
+                passportPlace: "Place of Issue",
+                passportIssueDate: "Date of Issue",
+                passportExpiryDate: "Expiry Date",
+                passportCopy: "Upload Passport Copy"
+            };
+
+            // Loop through all [required] fields
+            form.querySelectorAll("[required]").forEach(function (input) {
+                if ((input.type === "radio" || input.type === "checkbox") &&
+                    !form.querySelector(`input[name="${input.name}"]:checked`)) {
+                    if (!missingFields.includes(input.name)) {
+                        missingFields.push(input.name);
+                    }
+                } else if (input.type !== "radio" && input.type !== "checkbox" && !input.value.trim()) {
+                    missingFields.push(input.name);
+                }
             });
-            return; // stop checking further
-        }
-    }
 
-    // If all are filled
-    Swal.fire({
-        icon: "success",
-        title: "Form Submitted!",
-        text: "Your details have been successfully submitted."
-    });
-});
-
-document.getElementById("employeeForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop form from submitting
-
-    let form = this;
-    let missingFields = [];
-
-    // Map field names to friendly labels
-    const fieldLabels = {
-        name: "Name",
-        dob: "Date of Birth",
-        gender: "Gender",
-        photo: "Upload Photo",
-        bloodGroup: "Blood Group",
-        qualification: "Qualification",
-        email: "Email",
-        mobile: "Mobile Number",
-        permanentAddress: "Permanent Address",
-        currentAddress: "Current Address",
-        educationCourse: "Education - Course",
-        educationInstitution: "Education - Institution",
-        educationPassedOn: "Education - Passed On",
-        educationPercentage: "Education - Percentage",
-        educationCertificate: "Education - Certificate Upload",
-        familyName: "Family Member Name",
-        familyRelation: "Family Relationship",
-        familyAge: "Family Age",
-        familyMobile: "Family Mobile Number",
-        expCompany: "Experience - Company Name",
-        expFrom: "Experience - From",
-        expTo: "Experience - To",
-        expDuration: "Experience - Total Experience",
-        expPhoto: "Experience - Company Photo",
-        passport: "Do you have a passport?",
-        passportNo: "Passport Number",
-        passportPlace: "Place of Issue",
-        passportIssueDate: "Date of Issue",
-        passportExpiryDate: "Expiry Date",
-        passportCopy: "Upload Passport Copy"
-    };
-
-    // Loop through all required fields
-    form.querySelectorAll("[required]").forEach(function(input) {
-        if ((input.type === "radio" || input.type === "checkbox") && !form.querySelector(`input[name="${input.name}"]:checked`)) {
-            if (!missingFields.includes(input.name)) {
-                missingFields.push(input.name);
+            if (missingFields.length > 0) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Validation Error",
+                    html: "Please fill in the required fields:<br><b>" +
+                        missingFields.map(f => fieldLabels[f] || f).join(", ") + "</b>",
+                });
+            } else {
+                Swal.fire({
+                    icon: "success",
+                    title: "Form Submitted!",
+                    text: "Your details have been successfully submitted."
+                }).then(() => {
+                    form.submit(); // actually submit after success
+                });
             }
-        } else if (input.type !== "radio" && input.type !== "checkbox" && !input.value.trim()) {
-            missingFields.push(input.name);
-        }
-    });
-
-    // Show SweetAlert error if there are missing fields
-    if (missingFields.length > 0) {
-        Swal.fire({
-            icon: "error",
-            title: "Validation Error",
-            html: "Please fill in the required fields:<br><b>" +
-                  missingFields.map(f => fieldLabels[f] || f).join(", ") + "</b>",
         });
-    } else {
-        Swal.fire({
-            icon: "success",
-            title: "Form Submitted!",
-            text: "Your details have been successfully submitted."
-        });
-
-        // Uncomment below to submit
-        // form.submit();
     }
 });
 </script>
+
 
 </body>
 </html>
